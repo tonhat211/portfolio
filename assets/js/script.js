@@ -200,7 +200,7 @@ var projects = [
   {
     id: 2,
     name: "Course registration application",
-    avatar: "./assets/imgs/course_registration_imgs/cr_avatar.jpg",
+    avatar: "./assets/imgs/course_registration_imgs/cr_avatar.JPG",
     description: `This app was inspired by the course enrollment system of Nong Lam University.
               \nTech stack: React Native, Spring boot and MySQL`,
     githubs: [
@@ -264,39 +264,6 @@ function renderProjects() {
 }
 
 renderProjects();
-
-var projects_demos = [
-  {
-    id: 1,
-    name: "Stationery sale website",
-    imgs: [
-      "./assets/imgs/thien_long_imgs/tl_1.png",
-      "./assets/imgs/thien_long_imgs/tl_2.png",
-      "./assets/imgs/thien_long_imgs/tl_3.png",
-      "./assets/imgs/thien_long_imgs/tl_4.png",
-      "./assets/imgs/thien_long_imgs/tl_5.png",
-      "./assets/imgs/thien_long_imgs/tl_6.png",
-      "./assets/imgs/thien_long_imgs/tl_7.png",
-      "./assets/imgs/thien_long_imgs/tl_8.png",
-      "./assets/imgs/thien_long_imgs/tl_9.png",
-    ],
-  },
-  {
-    id: 2,
-    name: "Course registration application",
-    imgs: [
-      "./assets/imgs/course_registration_imgs/cr_1.jpg",
-      "./assets/imgs/course_registration_imgs/cr_2.jpg",
-      "./assets/imgs/course_registration_imgs/cr_3.jpg",
-      "./assets/imgs/course_registration_imgs/cr_4.jpg",
-      "./assets/imgs/course_registration_imgs/cr_5.jpg",
-      "./assets/imgs/course_registration_imgs/cr_6.jpg",
-      "./assets/imgs/course_registration_imgs/cr_7.jpg",
-      "./assets/imgs/course_registration_imgs/cr_8.jpg",
-      "./assets/imgs/course_registration_imgs/cr_9.jpg",
-    ],
-  },
-];
 
 function viewDemo(id) {
   const modal = document.getElementById("modal");

@@ -41,6 +41,10 @@
     width: 100%;
   }
 
+  .experience-item_content .title {
+    margin-top: 6px;
+  }
+
   #experience p {
     font-size: 0.6rem !important;
   }
@@ -52,6 +56,11 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 4px;
+  }
+
+  .experience-item_content .action-btns-container {
+    margin-top: 6px !important;
   }
 
   #education p {
@@ -79,7 +88,12 @@
 
   #modal .modal_content {
     margin-top: 10%;
-    max-height: 50%;
+    max-height: 80%;
+    max-width: 80%;
+  }
+
+  .modal_content_title {
+    font-size: 1rem !important;
   }
 
   .back-to-top-btn {

@@ -176,6 +176,15 @@ var projects = [
   {
     id: 1,
     name: "Stationery sale website",
+    avatar: "./assets/imgs/thien_long_imgs/tl_avatar.png",
+    description: `Built as a learning project, this site is based on the layout and features of Thiên Long’s official website.
+              \nTech stack: ReactJs, Spring boot and MySQL`,
+    githubs: [
+      {
+        title: "GitHub",
+        link: "https://github.com/tonhat211/VanPhongPham",
+      },
+    ],
     imgs: [
       "./assets/imgs/thien_long_imgs/tl_1.png",
       "./assets/imgs/thien_long_imgs/tl_2.png",
@@ -190,12 +199,106 @@ var projects = [
   },
   {
     id: 2,
-    name: " Course registration application",
-    imgs: ["./assets/imgs/pic-2.png", "./assets/imgs/pic-1.png"],
+    name: "Course registration application",
+    avatar: "./assets/imgs/course_registration_imgs/cr_avatar.jpg",
+    description: `This app was inspired by the course enrollment system of Nong Lam University.
+              \nTech stack: React Native, Spring boot and MySQL`,
+    githubs: [
+      {
+        title: "git.fe_user",
+        link: "https://github.com/tonhat211/Mobile_User",
+      },
+      {
+        title: "git.fe_admin",
+        link: "https://github.com/tonhat211/Mobile_Admin",
+      },
+      {
+        title: "git.be_server",
+        link: "https://github.com/tonhat211/Mobile_Server",
+      },
+    ],
+    imgs: [
+      "./assets/imgs/course_registration_imgs/cr_1.jpg",
+      "./assets/imgs/course_registration_imgs/cr_2.jpg",
+      "./assets/imgs/course_registration_imgs/cr_3.jpg",
+      "./assets/imgs/course_registration_imgs/cr_4.jpg",
+      "./assets/imgs/course_registration_imgs/cr_5.jpg",
+      "./assets/imgs/course_registration_imgs/cr_6.jpg",
+      "./assets/imgs/course_registration_imgs/cr_7.jpg",
+      "./assets/imgs/course_registration_imgs/cr_8.jpg",
+      "./assets/imgs/course_registration_imgs/cr_9.jpg",
+    ],
   },
 ];
 
-function viewDocs(id) {
+function renderProjects() {
+  const root = document.querySelector("#experience .experience-item");
+  const container = document.querySelector("#experience-list");
+
+  for (let i = 0; i < projects.length; i++) {
+    const e = root.cloneNode(true);
+
+    e.querySelector(".title").innerText = projects[i].name;
+    e.querySelector(".description").innerText = projects[i].description;
+    e.querySelector(".img_container").href = projects[i].avatar;
+    e.querySelector("img").src = projects[i].avatar;
+
+    const btn = e.querySelector(".view-demo-btn");
+    if (btn) {
+      btn.addEventListener("click", () => viewDemo(projects[i].id));
+    }
+    const aRoot = e.querySelector(".to-github-a");
+    const actionBtnsContainer = e.querySelector(".action-btns-container");
+    const gits = projects[i].githubs;
+    for (let j = 0; j < gits.length; j++) {
+      const newA = aRoot.cloneNode(true);
+      newA.innerText = gits[j].title;
+      newA.href = gits[j].link;
+      actionBtnsContainer.appendChild(newA);
+    }
+    aRoot.style.display = "none";
+
+    container.appendChild(e);
+  }
+  root.style.display = "none";
+}
+
+renderProjects();
+
+var projects_demos = [
+  {
+    id: 1,
+    name: "Stationery sale website",
+    imgs: [
+      "./assets/imgs/thien_long_imgs/tl_1.png",
+      "./assets/imgs/thien_long_imgs/tl_2.png",
+      "./assets/imgs/thien_long_imgs/tl_3.png",
+      "./assets/imgs/thien_long_imgs/tl_4.png",
+      "./assets/imgs/thien_long_imgs/tl_5.png",
+      "./assets/imgs/thien_long_imgs/tl_6.png",
+      "./assets/imgs/thien_long_imgs/tl_7.png",
+      "./assets/imgs/thien_long_imgs/tl_8.png",
+      "./assets/imgs/thien_long_imgs/tl_9.png",
+    ],
+  },
+  {
+    id: 2,
+    name: "Course registration application",
+    imgs: [
+      "./assets/imgs/course_registration_imgs/cr_1.jpg",
+      "./assets/imgs/course_registration_imgs/cr_2.jpg",
+      "./assets/imgs/course_registration_imgs/cr_3.jpg",
+      "./assets/imgs/course_registration_imgs/cr_4.jpg",
+      "./assets/imgs/course_registration_imgs/cr_5.jpg",
+      "./assets/imgs/course_registration_imgs/cr_6.jpg",
+      "./assets/imgs/course_registration_imgs/cr_7.jpg",
+      "./assets/imgs/course_registration_imgs/cr_8.jpg",
+      "./assets/imgs/course_registration_imgs/cr_9.jpg",
+    ],
+  },
+];
+
+function viewDemo(id) {
   const modal = document.getElementById("modal");
   if (modal && modal.classList.contains("hidden")) {
     const project = projects.find((p) => p.id === id);
@@ -203,7 +306,9 @@ function viewDocs(id) {
     if (project) {
       let imgs = project.imgs
         .map(
-          (src) => `<a class="grid-col-6 p-10" href="${src}" target="_blank">
+          (
+            src
+          ) => `<a class="grid-col-6 p-10 grid-col-12_mob" href="${src}" target="_blank">
 
                       <img src="${src}" alt="demo" />
                     </a>`
